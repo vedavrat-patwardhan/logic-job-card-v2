@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { LoginForm } from "../../../components/loginForm";
+import { LoginForm } from "../../../page-section/loginForm";
 
 const LoginPage = () => {
   return (
