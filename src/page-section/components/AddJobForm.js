@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const jobSchema = z.object({
   // Required fields
   customerName: z.string().min(1, "Customer name is required"),
-  customerPhone: z.string().min(1, "Phone number is required"),
+  mobileNo: z.string().min(1, "Phone number is required"),
   material: z
     .object({
       value: z.string(),
@@ -28,7 +28,7 @@ const jobSchema = z.object({
   // Optional fields
   srNo: z.string().optional(),
   password: z.string().optional(),
-  estimate: z.number().optional(),
+  estimate: z.string().optional(),
   repairedBy: z.string().optional(),
   modelNo: z.string().optional(),
   accessories: z
