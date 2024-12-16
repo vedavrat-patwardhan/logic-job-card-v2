@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { FilterBox } from "@/components/FilterBox";
 import { JobsTable } from "@/components/Table";
@@ -10,7 +10,7 @@ import { Pagination } from "../components/Pagination";
 import { Modal } from "../components/Modal";
 import { AddJobForm } from "./components/AddJobForm";
 
-export const DashboardPage = () => {
+const DashboardContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [jobs, setJobs] = useState([]);
@@ -102,5 +102,13 @@ export const DashboardPage = () => {
         </Modal>
       </main>
     </div>
+  );
+};
+
+export const DashboardPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DashboardContent />
+    </Suspense>
   );
 };
